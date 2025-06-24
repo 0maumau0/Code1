@@ -1,20 +1,28 @@
-h1 {
-    color: blue;
+html{
     text-align: center;
-
+    background-color: midnightblue;
+    font-family: 'Courier New', Courier, monospace;
+}
+h1 {
+    color: white;
+   letter-spacing: 0px;
 }
 
+body{
+    width: auto;
+    height: auto;
+}
 button {
     cursor: grabbing;
+   justify-content: center;
+    height: auto;
+    border-style: inset;
+    background: none;
+    color: azure;
+    font-family: inherit;
 }
 
 #char {
-    height: 20%;
-    width: 20%;
-
-}
-
-#pudding {
-height: ;
-width: ;
+    height: 300px;
+   border-radius: 100px;
 }
