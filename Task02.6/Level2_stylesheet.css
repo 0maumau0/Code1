@@ -1,0 +1,9 @@
+html {
+    text-align: center;
+}
+
+body {
+    background-image: url(Hell_Fire.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
