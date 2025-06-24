@@ -1,3 +1,9 @@
+.module {
+  cursor: url('cigar_cursor.png'), auto;	
+}
+
+
+
 body {
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
@@ -25,6 +31,7 @@ body {
     background-color: black;
     color: antiquewhite;
     transition-duration: 0.2s;
+    cursor: none;
 }
 
 p {
@@ -46,5 +53,5 @@ h1 {
     height: 0px;
     color: antiquewhite;
     transition-duration: 0s;
-    cursor: help;
+    cursor: none;
 }
