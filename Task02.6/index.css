@@ -1,12 +1,26 @@
 html {
-    background-color: antiquewhite;
+    background-color: midnightblue;
 }
 
 img {
-    border-radius: 80px;
+    height: 300px;
 }
 
 #MrSleepyHead {
     display: block;
     margin: auto;
+    border-radius: 100px;
+}
+
+#DreamAway {
+    display: block;
+    margin-left: auto;
+    margin-bottom: auto;
+    border-radius: 20%;
+}
+
+#WakeUp {
+    display: block;
+    margin-right: auto;
+    margin-bottom: auto;
 }
