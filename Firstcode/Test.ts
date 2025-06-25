@@ -28,3 +28,15 @@ let t: string = "Oh no! ";
 t = t + t;
 t = t + t;
 //swap made a new variable and save x or y short in it
+
+//nim try 
+let z0: number = 4;
+let z1: number = 7;
+let z2: number = 5;
+let z3: number = 3;
+let result: number;
+result = z0 ^ z1;
+result = result ^ z2;
+result = z1 ^ z2;
+result = result ^ z3;
+console.log(result)
