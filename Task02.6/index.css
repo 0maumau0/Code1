@@ -2,25 +2,35 @@ body {
     background-color: midnightblue;
 }
 
-img {
+#MrSleepyHead {
+    display: block;
+    padding-top: 300px;
+    margin: auto;
+    border-radius: 100px;
     height: 300px;
 }
 
-#MrSleepyHead {
-    display: block;
-    margin: auto;
-    border-radius: 100px;
-}
-
-#DreamAway {
-    display: block;
-    margin-left: auto;
-    margin-bottom: auto;
+#progress_button {
+    float: right;
     border-radius: 20%;
+    height: 300px;
+    opacity: 100%;
+    transition-duration: 0.5s;
 }
 
-#WakeUp {
-    display: block;
-    margin-right: auto;
-    margin-bottom: auto;
+#progress_button:hover {
+    opacity: 50%;
+    transition-duration: 0.5s;
+}
+
+#exit_button {
+    float: left;
+    height: 300px;
+    opacity: 30%;
+    transition-duration: 0.5s;
+}
+
+#exit_button:hover {
+    opacity: 100%;
+    transition-duration: 0.5s;
 }
