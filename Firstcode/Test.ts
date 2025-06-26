@@ -60,5 +60,25 @@ namespace IF_branch
     else {
         console.log("goodbye");
     }
-    console.log("done");
+    console.log("done IF-branch");
+}
+
+namespace Switch
+{
+    let x:number = 1;
+    switch (x) {
+        case 1 :
+            console.log("Hello");
+        break;
+
+        case 2 :
+            console.log("Goodbye");
+        break;
+
+        default:
+            console.log("Hug");
+        break;
+        
+    }
+    console.log("Done Switch");
 }

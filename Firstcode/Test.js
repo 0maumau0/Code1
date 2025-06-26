@@ -57,6 +57,22 @@ var IF_branch;
     else {
         console.log("goodbye");
     }
-    console.log("done");
+    console.log("done IF-branch");
 })(IF_branch || (IF_branch = {}));
+var Switch;
+(function (Switch) {
+    let x = 1;
+    switch (x) {
+        case 1:
+            console.log("Hello");
+            break;
+        case 2:
+            console.log("Goodbye");
+            break;
+        default:
+            console.log("Hug");
+            break;
+    }
+    console.log("Done Switch");
+})(Switch || (Switch = {}));
 //# sourceMappingURL=Test.js.map
