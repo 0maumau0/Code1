@@ -1,8 +1,8 @@
-namespace Test{
+namespace Test {
 
     console.log("I like Overlord");
-    let v: number= 1;
-    v=v+1;
+    let v: number = 1;
+    v = v + 1;
     console.log(v);
     let a = ["hi", 7, "bye"]
     let greek: number;
@@ -15,7 +15,7 @@ namespace Test{
     console.log(greek)
     console.log(0.1 + 0.2); // flawed calculation
 }
-    
+
 // area calculation Triangle Rectangle w*h
 let w: number = 5;
 let h: number = 3;
@@ -44,10 +44,21 @@ result = result ^ z3;
 console.log(result);
 
 {
-    let x:number =0;
+    let x: number = 0;
     {
-    //let x: number = 1;
-    console.log(x);
+        //let x: number = 1;
+        console.log(x);
     }
     console.log(x);
+}
+
+namespace IF_branch 
+{
+    let x: number = 1
+    if (x == 1) {
+        console.log("hello world");}
+    else {
+        console.log("goodbye");
+    }
+    console.log("done");
 }

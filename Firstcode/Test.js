@@ -48,4 +48,15 @@ console.log(result);
     }
     console.log(x);
 }
+var IF_branch;
+(function (IF_branch) {
+    let x = 1;
+    if (x == 1) {
+        console.log("hello world");
+    }
+    else {
+        console.log("goodbye");
+    }
+    console.log("done");
+})(IF_branch || (IF_branch = {}));
 //# sourceMappingURL=Test.js.map
