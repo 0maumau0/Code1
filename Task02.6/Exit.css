@@ -1,5 +1,5 @@
 .module {
-  cursor: url('cigar_cursor.png'), auto;	
+    cursor: url('cigar_cursor.png'), auto;
 }
 
 
@@ -9,6 +9,19 @@ body {
     text-align: center;
     padding: 100px;
     background-color: antiquewhite;
+    animation: fadeInAnimation ease 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 #return_button {
