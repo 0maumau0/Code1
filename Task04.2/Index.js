@@ -1,2 +1,9 @@
 "use strict";
+var Level1;
+(function (Level1) {
+    console.log(parent.gameState);
+    if (parent.gameState == 0) {
+        console.log("hello");
+    }
+})(Level1 || (Level1 = {}));
 //# sourceMappingURL=Index.js.map
