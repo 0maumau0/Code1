@@ -4,7 +4,7 @@ namespace Level1 {
     console.log(parent.gameState);
 
     if (parent.gameState == 0){
-        console.log("hello");
+        console.log("jetzt ist es mein Schoko Kuchen");
     }
     
 }
