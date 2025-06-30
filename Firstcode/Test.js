@@ -75,4 +75,28 @@ var Switch;
     }
     console.log("Done Switch");
 })(Switch || (Switch = {}));
+var NIM;
+(function (NIM) {
+    //fill rows initially
+    //display state
+    //playrturn
+    //change state
+    let a, b, c, d;
+    let player = false;
+    fillRowsInitially();
+    PlayRound();
+    displayState();
+    playerTurn();
+    changeState();
+    let win = checkWin();
+    if (win === true) {
+        showWinner(activePlayer);
+    }
+    else {
+        ChangePlayer();
+        PlayRound();
+    }
+    function fillRowsInitially() {
+    }
+})(NIM || (NIM = {}));
 //# sourceMappingURL=Test.js.map

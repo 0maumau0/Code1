@@ -84,3 +84,35 @@ namespace Switch
 }
 
 
+namespace NIM {
+    //fill rows initially
+    //display state
+    //playrturn
+    //change state
+
+    let a:number, b:number, c: number, d: number;
+    let player:boolean = false;
+
+     fillRowsInitially()
+    
+     PlayRound()
+        
+        function PlayRound()
+        displayState()
+        playerTurn()
+        changeState()
+        let win = checkWin();
+
+        if (win === true) {
+            showWinner(activePlayer);
+        } else {
+            ChangePlayer();
+            PlayRound();
+        }
+
+        function fillRowsInitially() {
+
+
+        }
+    }}
+
