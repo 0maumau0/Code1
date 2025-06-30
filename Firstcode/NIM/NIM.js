@@ -1,40 +1,48 @@
 "use strict";
 var NIM;
 (function (NIM) {
-    let a, b, c, d;
+    let Array = [0, 0, 0, 0];
     let aktiveplayer;
     aktiveplayer = false;
-    //console.log(a, b, c, d);
-    function fillRows(a, b, c, d) {
+    fillRows();
+    PlayaRound();
+    function fillRows() {
         let lamp = prompt("how much lamps");
-        a = parseInt("lamp");
-        d = c = b = a;
-        if (a > 10 && a < 0) {
+        Array[0] = parseInt(lamp);
+        Array[3] = Array[2] = Array[1] = Array[0];
+        if (Array[0] > 10 || Array[0] < 0) {
             console.log("not valid lamp number");
-            return fillRows;
+            return fillRows();
         }
         else {
-            console.log(a + " lamps are builded");
-            return;
+            console.log(Array[0] + " lamps are builded");
         }
     }
-    //need loop function (recurve)
-    // function PLayaRound
-    //- display satte
-    //- choose row and ammount
-    //- change state
-    //- check win
-    //- change player
-    //- function PlayaRound
-    function displayState(a, b, c, d, aktiveplayer) {
-        if (aktiveplayer == false) {
-            console.log("Player 1's turn");
+    function PlayaRound() {
+        displayState();
+        chooseRowAmmount();
+        changeState();
+        checkWin();
+        //need loop function (recurve)-)
+        // function PLayaRound
+        //- display state
+        //- choose row and ammount
+        //- change state
+        //- check win
+        //- function PlayaRound
+        function displayState() {
+            if (aktiveplayer == false) {
+                console.log("Player 1's turn");
+            }
+            else {
+                console.log("Player 2's turn");
+            }
+            console.log("a,b,c,d");
+            console.log(Array);
         }
-        else {
-            console.log("Player 2's turn");
-        }
-        console.log("a,b,c,d");
-        console.log(a, b, c, d);
+        function chooseRowAmmount() { }
+        function changeState() { }
+        function checkWin() { }
     }
 })(NIM || (NIM = {}));
 //# sourceMappingURL=NIM.js.map

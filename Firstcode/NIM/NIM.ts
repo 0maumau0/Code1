@@ -1,37 +1,46 @@
 namespace NIM {
 
-    let a: number, b: number, c: number, d: number;
+    let Array: number[] = [0, 0, 0, 0];
     let aktiveplayer: boolean;
     aktiveplayer = false;
-    //console.log(a, b, c, d);
 
-    function fillRows(a: number,b: number,c: number, d: number) {
-        let lamp = prompt("how much lamps");
-        a = parseInt("lamp");
-        d = c = b = a;
+    fillRows();
+    PlayaRound();
 
-        if (a> 10 && a<0) {
+    function fillRows() {
+        let lamp: string = prompt("how much lamps");
+        Array[0] = parseInt(lamp);
+        Array[3] = Array[2] = Array[1] = Array[0];
+
+        if (Array[0] > 10 || Array[0] < 0) {
             console.log("not valid lamp number");
-            return fillRows
+            return fillRows()
 
         }
         else {
-            console.log(a + " lamps are builded");
-            return
+            console.log(Array[0] + " lamps are builded");
+
         }
     }
-    
 
-    //need loop function (recurve)
+
+
+    function PlayaRound(){
+
+    displayState();
+    chooseRowAmmount();
+    changeState();
+    checkWin();
+
+    //need loop function (recurve)-)
     // function PLayaRound
-    //- display satte
+    //- display state
     //- choose row and ammount
     //- change state
     //- check win
-    //- change player
     //- function PlayaRound
-   
-    function displayState(a: number,b: number,c: number, d: number, aktiveplayer: boolean) {
+
+    function displayState() {
         if (aktiveplayer == false) {
             console.log("Player 1's turn");
         }
@@ -40,9 +49,16 @@ namespace NIM {
         }
 
         console.log("a,b,c,d");
-        console.log(a, b, c, d);
+        console.log(Array);
 
     }
 
 
+    function chooseRowAmmount(){}
+
+    function changeState(){}
+
+    function checkWin(){}
+
+}
 }

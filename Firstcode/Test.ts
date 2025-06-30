@@ -4,7 +4,7 @@ namespace Test {
     let v: number = 1;
     v = v + 1;
     console.log(v);
-    let a = ["hi", 7, "bye"]
+    let k = ["hi", 7, "bye"]
     let greek: number;
     let speek: string;
     let right: boolean;
@@ -14,7 +14,7 @@ namespace Test {
     greek = greek + greek;
     console.log(greek)
     console.log(0.1 + 0.2); // flawed calculation
-}
+
 
 // area calculation Triangle Rectangle w*h
 let w: number = 5;
@@ -82,37 +82,6 @@ namespace Switch
     }
     console.log("Done Switch");
 
-
-
-//namespace NIM {
-    //fill rows initially
-    //display state
-    //playrturn
-    //change state
-
-  //  let a:number, b:number, c: number, d: number;
-   // let player:boolean = false;
-
-    // fillRowsInitially()
-    
-     //PlayRound()
-        
-       // function PlayRound()
-        //displayState()
-       // playerTurn()
-        //changeState()
-       // let win = checkWin();
-
-       // if (win === true) {
-        //    showWinner(activePlayer);
-       // } else {
-          //  ChangePlayer();
-          //  PlayRound();
-       // }
-
-      //  function fillRowsInitially() {
-
-
-      //  }
-   // }}
+}
+    //array in Task 4.04 not included
 }
