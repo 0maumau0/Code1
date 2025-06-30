@@ -74,29 +74,28 @@ var Switch;
             break;
     }
     console.log("Done Switch");
-})(Switch || (Switch = {}));
-var NIM;
-(function (NIM) {
+    //namespace NIM {
     //fill rows initially
     //display state
     //playrturn
     //change state
-    let a, b, c, d;
-    let player = false;
-    fillRowsInitially();
-    PlayRound();
-    displayState();
-    playerTurn();
-    changeState();
-    let win = checkWin();
-    if (win === true) {
-        showWinner(activePlayer);
-    }
-    else {
-        ChangePlayer();
-        PlayRound();
-    }
-    function fillRowsInitially() {
-    }
-})(NIM || (NIM = {}));
+    //  let a:number, b:number, c: number, d: number;
+    // let player:boolean = false;
+    // fillRowsInitially()
+    //PlayRound()
+    // function PlayRound()
+    //displayState()
+    // playerTurn()
+    //changeState()
+    // let win = checkWin();
+    // if (win === true) {
+    //    showWinner(activePlayer);
+    // } else {
+    //  ChangePlayer();
+    //  PlayRound();
+    // }
+    //  function fillRowsInitially() {
+    //  }
+    // }}
+})(Switch || (Switch = {}));
 //# sourceMappingURL=Test.js.map
