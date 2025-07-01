@@ -75,5 +75,11 @@ var Test;
         console.log("Done Switch");
     })(Switch || (Switch = {}));
     //array in Task 4.04 not included
+    //looops:
+    let i = 0;
+    while (i < 10) {
+        console.log("still here??");
+        i++;
+    }
 })(Test || (Test = {}));
 //# sourceMappingURL=Test.js.map
