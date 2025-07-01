@@ -21,6 +21,7 @@ body {
     margin: auto;
     border-radius: 100px;
     height: 300px;
+    box-shadow: inset;
 }
 
 #progress_button {
@@ -29,6 +30,7 @@ body {
     height: 300px;
     opacity: 100%;
     transition-duration: 0.5s;
+    box-shadow: inset;
 }
 
 #progress_button:hover {
@@ -41,6 +43,7 @@ body {
     height: 300px;
     opacity: 30%;
     transition-duration: 0.5s;
+    box-shadow: inset;
 }
 
 #exit_button:hover {
