@@ -8,7 +8,7 @@ namespace NIM {
     PlayaRound();
 
     function fillRows() {
-        let lamp: string = prompt("how much lamps");
+        let lamp: any = prompt("how much lamps"); // type string do a problem by lamp
         Array[0] = parseInt(lamp);
         Array[3] = Array[2] = Array[1] = Array[0];
 

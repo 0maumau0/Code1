@@ -7,7 +7,7 @@ var NIM;
     fillRows();
     PlayaRound();
     function fillRows() {
-        let lamp = prompt("how much lamps");
+        let lamp = prompt("how much lamps"); // type string do a problem by lamp
         Array[0] = parseInt(lamp);
         Array[3] = Array[2] = Array[1] = Array[0];
         if (Array[0] > 10 || Array[0] < 0) {
