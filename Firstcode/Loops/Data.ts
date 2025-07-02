@@ -5,31 +5,33 @@ namespace RolltheDice {
     export let data: any = [
 
         {
-            type: "d4", dices: "prompt", min: 1, max: 4,
+            type: "d4", dice: 0, min: 1, max: 4,
             result: "fill", summ: "filler"
         },
 
 
         {
-            type: "d6", dices: "prompt", min: 1, max: 6,
+            type: "d6", dice: 0, min: 1, max: 6,
             result: "fill", summ: "filler"
         },
 
 
         {
-            type: "d8", dices: "prompt", min: 1, max: 8,
+            type: "d8", dice: 0, min: 1, max: 8,
             result: "fill", summ: "filler"
         },
 
 
         {
-            type: "d12", dices: "prompt", min: 1, max: 12,
+            type: "d12", dice: 0, min: 1, max: 12,
             result: "fill", summ: "filler"
         },
 
         {
-            type: "d20", dices: "prompt", min: 1, max: 20,
+            type: "d20", dice: 0, min: 1, max: 20,
             result: "fill", summ: "filler"
         },
+
+        ["zwischenspeicher"]
     ]
 }
