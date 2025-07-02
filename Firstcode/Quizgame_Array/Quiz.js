@@ -2,6 +2,6 @@
 var Quizgame;
 (function (Quizgame) {
     let points;
-    console.log(Quizgame.data[0][0]["frage"]);
+    console.log(Quizgame.data[0][1]["frage"]);
 })(Quizgame || (Quizgame = {}));
 //# sourceMappingURL=Quiz.js.map
