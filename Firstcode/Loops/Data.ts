@@ -6,30 +6,30 @@ namespace RolltheDice {
 
         {
             type: "d4", dice: 0, min: 1, max: 4,
-            result: "fill", summ: "filler"
+             sum: 0
         },
 
 
         {
             type: "d6", dice: 0, min: 1, max: 6,
-            result: "fill", summ: "filler"
+             sum: 0
         },
 
 
         {
             type: "d8", dice: 0, min: 1, max: 8,
-            result: "fill", summ: "filler"
+             sum: 0
         },
 
 
         {
             type: "d12", dice: 0, min: 1, max: 12,
-            result: "fill", summ: "filler"
+             sum: 0
         },
 
         {
             type: "d20", dice: 0, min: 1, max: 20,
-            result: "fill", summ: "filler"
+             sum: 0
         },
 
         ["zwischenspeicher"]
