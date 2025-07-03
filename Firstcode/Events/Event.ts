@@ -1,10 +1,17 @@
-namespace Events{
-console.log("Hello World");
+//namespace Events {
+  //  console.log("Hello World");
 
-document.addEventListener("load",handleLoad);
+    //document.addEventListener("DOMContentLoaded", handleLoad);
 
 
-function handleLoad(_event:Event):void{
-    console.log(_event)
-}
+    //function handleLoad(_event: Event): void {
+      //  console.log(_event)
+    //}
+///}
+
+namespace eventInspektor{
+
+
+
+
 }
