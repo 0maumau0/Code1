@@ -1,12 +1,25 @@
-
-div {
-    border: 10px;
-    border-radius: 20px;
-    height: 50px;
-    width: 50;
-  
+body{
+    height: 1020px;
+    width: 1080px;
+    cursor: pointer;
 }
 
-span {
-    position: fixed;
+div{
+    display:inline-block;
+    border-color: black;
+    border-style: dotted;
+    border-radius:20px;
+    height: 60%;
+    width: 49%;
+    text-align: center;
+    box-sizing: border-box;
+}
+#cursorSpan {
+    position: absolute;
+    background-color: aqua;
+    size: 60px;
+    border-radius: 5px;
+    border-color: black;
+    pointer-events: none;
+    
 }
