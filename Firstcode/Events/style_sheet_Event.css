@@ -17,9 +17,10 @@ div{
 #cursorSpan {
     position: absolute;
     background-color: aqua;
-    size: 60px;
+    size: 100px;
     border-radius: 5px;
     border-color: black;
     pointer-events: none;
+    ;
     
 }
