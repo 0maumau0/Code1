@@ -19,10 +19,9 @@ var eventInspektor;
         let span = document.getElementById("cursorSpan");
         span.innerText = _event.screenX + "x" + _event.screenY + "y" + _event.target;
         console.log(_event.screenX, "x", _event.screenY, "y", "oakdiiosajuifnjaouijfuiohuioashjf");
-        //sett position of span on cursor +offset
-        //not working
         span.style.top = _event.screenX + 10;
         span.style.left = _event.screenY + 10;
+        //geht mit '{$......}' und auch mit array möglich. code von den anderen anschauen.
     }
     function handleClick(_event) {
         if (_event.currentTarget == window) {
