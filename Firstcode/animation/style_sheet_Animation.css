@@ -1,22 +1,21 @@
-html, body{
-    margin:0px;
-    padding:0px;
-    height:100%;
+html,
+body {
+    margin: 0px;
+    padding: 0px;
 
 }
 
-body{
+body {
     background-color: black;
 
 }
 
-span
-{
+span {
     background-color: aqua;
-    width:1px;
-    height: 1px;
+    width: 2px;
+    height: 2px;
     border-radius: 50%;
-    position: absolute;
-    
-    transform:matrix(20, 0,0, 20 , 0,0);
+    position: fixed;
+
+    transform: matrix(20, 0, 0, 20, 0, 0);
 }
