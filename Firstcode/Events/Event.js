@@ -19,9 +19,9 @@ var eventInspektor;
         let span = document.getElementById("cursorSpan");
         span.innerText = _event.screenX + "x" + _event.screenY + "y" + _event.target;
         console.log(_event.screenX, "x", _event.screenY, "y", "oakdiiosajuifnjaouijfuiohuioashjf");
-        span.style.top = _event.screenX + 10;
-        span.style.left = _event.screenY + 10;
-        //geht mit '{$......}' und auch mit array möglich. code von den anderen anschauen.
+        span.style.top = '${ _event.screenX + 10}px';
+        span.style.left = '${_event.screenY + 10}px';
+        //warum klappt das nicht
     }
     function handleClick(_event) {
         if (_event.currentTarget == window) {
