@@ -1,53 +1,38 @@
-namespace eventInspektor{
+namespace eventInspektor {
 
-  window.addEventListener("load",handleLoad);
-  
-  function handleLoad(_event: Event):void{
+  window.addEventListener("load", handleLoad);
 
+  function handleLoad(_event: Event): void {
     eventListener();
-    handleMove();
-    handleclick();
-    handlekeypress();
-
-
   }
-  
-  function eventListener():void{
 
-    const divs =document.querySelectorAll('div')
-     document.addEventListener("mousemove", handleMove );
+  function eventListener(): void {
+    const divs = document.querySelectorAll('div');
+    document.addEventListener("mousemove", handleMove);
     divs.forEach(div => {
-      div.addEventListener("click", handleclick);
-      div.addEventListener("keyup", handlekeypress);
-      
+      div.addEventListener("click", handleClick);
+      div.addEventListener("keyup", handleKeypress);
     });
-
   }
 
   // problem: span dont have settet size and inner text isnt completly
-  function handleMove(_event: MouseEvent):void{
+  function handleMove(_event: MouseEvent): void {
     console.log(_event)
-    //console.log(_event.target)
-    document.getElementById("cursorSpan")
     let span = document.getElementById("cursorSpan");
-    span!.innerText= (_event.screenX ,"x", _event.screenY, "y");
-    console.log(_event.screenX ,"x", _event.screenY, "y","oakdiiosajuifnjaouijfuiohuioashjf");
-    
-    
-    
-
+    span!.innerText = _event.screenX + "x" + _event.screenY + "y" + _event.target;
+    console.log(_event.screenX, "x", _event.screenY, "y", "oakdiiosajuifnjaouijfuiohuioashjf");
+    //sett position of span on cursor +offset
+    //not working
+    span!.style.top = _event.screenX + 10;
+    span!.style.left= _event.screenY + 10;
   }
 
-  function handleclick(_event:Event):void{
-    if(_event.currentTarget == window){
-      console.log("ICh mag fische")
+  function handleClick(_event: Event): void {
+    if (_event.currentTarget == window) {
+      console.log("ICh mag fische");
     }
-
-
-  }
-  
-  function handlekeypress(){
-
   }
 
+  function handleKeypress() {
+  }
 }

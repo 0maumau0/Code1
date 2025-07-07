@@ -15,12 +15,11 @@ div{
     box-sizing: border-box;
 }
 #cursorSpan {
-    position: absolute;
+    position: fixed;
     background-color: aqua;
     size: 100px;
     border-radius: 5px;
     border-color: black;
     pointer-events: none;
-    ;
-    
+    top: 10px;
 }
