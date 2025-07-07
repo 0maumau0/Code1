@@ -18,10 +18,9 @@ var eventInspektor;
         console.log(_event);
         let span = document.getElementById("cursorSpan");
         span.innerText = _event.screenX + "x" + _event.screenY + "y" + _event.target;
-        console.log(_event.screenX, "x", _event.screenY, "y", "oakdiiosajuifnjaouijfuiohuioashjf");
-        span.style.top = '${ _event.screenX + 10}px';
-        span.style.left = '${_event.screenY + 10}px';
-        //warum klappt das nicht
+        //console.log(_event.screenX, "x", _event.screenY, "y", "oakdiiosajuifnjaouijfuiohuioashjf");
+        span.style.left = (_event.clientX + 20) + "px";
+        span.style.top = (_event.clientY + 20) + "px";
     }
     function handleClick(_event) {
         if (_event.currentTarget == window) {
