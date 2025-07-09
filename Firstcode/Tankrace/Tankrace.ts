@@ -12,6 +12,7 @@ namespace Tankrace {
     window.addEventListener("load", handleload);
     let tank: Tank;
     let timePreviousFrame: number = 0;
+    const keys: {[key:string]:boolean} ={};
 
     function handleload(): void {
         tank = {
@@ -23,8 +24,8 @@ namespace Tankrace {
         document.body.appendChild(tank.element);
 
         document.body.addEventListener("mousemove", hndMouseMove);
-        document.body.addEventListener("keydown", hndForwardBackwards);
-        document.body.addEventListener("keyup", hndForwardBackwards);
+        document.body.addEventListener("keydown", hndKeys);
+        document.body.addEventListener("keyup", hndKeys);
 
         //start game loop
         update(0);
@@ -34,35 +35,37 @@ namespace Tankrace {
         tank.rotation += _event.movementX
     }
 
-    function hndForwardBackwards(_event: KeyboardEvent): void {
+    function hndKeys(_event: KeyboardEvent): void {
 
-        if (_event.type == "keyup") {
-            tank.velocity = 0;
-            return;
-        }
+        const down:boolean = _event.type == "keydown";
+        keys[_event.key] = down;
 
-        const radians: number = Math.PI * tank.rotation / 180;
 
-        switch (_event.key) {
+        // if (_event.type == "keyup") {
+        //     tank.velocity = 0;
+        // }
 
-            case "w":
-                tank.velocity = 100;
+        // switch (_event.key) {
 
-                break;
+        //     case "w":
+        //         tank.velocity = 100;
+        //         checkKey = false
 
-            case "s":
-                const backwards: number = Math.PI * tank.rotation / 180;
-                tank.velocity = -100;
+        //         break;
 
-                break;
-            default:
-                tank.velocity = 0;
+        //     case "s":
+        //         const backwards: number = Math.PI * tank.rotation / 180;
+        //         tank.velocity = -100;
 
-        }
+        //         break;
+        //     default:
+        //         tank.velocity = 0;
+        // }
 
 
 
     }
+
 
 
     function update(_time: number): void {
@@ -71,10 +74,23 @@ namespace Tankrace {
         let timeDelta: number = _time - timePreviousFrame;
         timeDelta /= 1000;
 
+        processInput();
         move(timeDelta);
 
         timePreviousFrame = _time;
         requestAnimationFrame(update);
+    }
+
+    function processInput(): void{
+        tank.velocity = 0;
+        if (checkKey("w")) {
+            tank.velocity = 100;
+        }
+    }
+
+    function checkKey(_key:string):boolean{
+        //console.log(keys)
+        return keys [_key];
     }
 
     function move(_timeDelta: number): void {

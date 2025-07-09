@@ -4,6 +4,7 @@ var Tankrace;
     window.addEventListener("load", handleload);
     let tank;
     let timePreviousFrame = 0;
+    const keys = {};
     function handleload() {
         tank = {
             element: document.createElement("span"),
@@ -13,39 +14,51 @@ var Tankrace;
         };
         document.body.appendChild(tank.element);
         document.body.addEventListener("mousemove", hndMouseMove);
-        document.body.addEventListener("keydown", hndForwardBackwards);
-        document.body.addEventListener("keyup", hndForwardBackwards);
+        document.body.addEventListener("keydown", hndKeys);
+        document.body.addEventListener("keyup", hndKeys);
         //start game loop
         update(0);
     }
     function hndMouseMove(_event) {
         tank.rotation += _event.movementX;
     }
-    function hndForwardBackwards(_event) {
-        if (_event.type == "keyup") {
-            tank.velocity = 0;
-            return;
-        }
-        const radians = Math.PI * tank.rotation / 180;
-        switch (_event.key) {
-            case "w":
-                tank.velocity = 100;
-                break;
-            case "s":
-                const backwards = Math.PI * tank.rotation / 180;
-                tank.velocity = -100;
-                break;
-            default:
-                tank.velocity = 0;
-        }
+    function hndKeys(_event) {
+        const down = _event.type == "keydown";
+        keys[_event.key] = down;
+        // if (_event.type == "keyup") {
+        //     tank.velocity = 0;
+        // }
+        // switch (_event.key) {
+        //     case "w":
+        //         tank.velocity = 100;
+        //         checkKey = false
+        //         break;
+        //     case "s":
+        //         const backwards: number = Math.PI * tank.rotation / 180;
+        //         tank.velocity = -100;
+        //         break;
+        //     default:
+        //         tank.velocity = 0;
+        // }
     }
     function update(_time) {
         const timeCurrent = Date.now();
         let timeDelta = _time - timePreviousFrame;
         timeDelta /= 1000;
+        processInput();
         move(timeDelta);
         timePreviousFrame = _time;
         requestAnimationFrame(update);
+    }
+    function processInput() {
+        tank.velocity = 0;
+        if (checkKey("w")) {
+            tank.velocity = 100;
+        }
+    }
+    function checkKey(_key) {
+        //console.log(keys)
+        return keys[_key];
     }
     function move(_timeDelta) {
         const radians = Math.PI * tank.rotation / 180;
