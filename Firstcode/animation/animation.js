@@ -7,7 +7,7 @@ var animation;
     let timePreviousFrame = Date.now();
     function handleLoad() {
         document.body.addEventListener("click", handlClick);
-        for (let i = 0; i < 2; i++) {
+        for (let i = 0; i < 400; i++) {
             createball();
         }
         update();
@@ -49,7 +49,7 @@ var animation;
         const ball = {
             element: document.createElement("span"),
             position: { x: 100 + Math.floor(Math.random() * 300) + 2, y: 100 + (Math.random() * 300) + 2 },
-            velocity: { x: 25 + Math.floor(Math.random() * 50) - 50, y: 25 + Math.floor(Math.random() * 50) - 50 },
+            velocity: { x: 50 + Math.floor(Math.random() * 100) - 100, y: 50 + Math.floor(Math.random() * 100) - 100 },
         };
         document.body.appendChild(ball.element);
         //balls[i] = ball
