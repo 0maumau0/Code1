@@ -55,9 +55,12 @@ var Tankrace;
         if (checkKey("w")) {
             tank.velocity = 100;
         }
+        if (checkKey("s")) {
+            tank.velocity = -100;
+        }
     }
     function checkKey(_key) {
-        //console.log(keys)
+        console.log(keys);
         return keys[_key];
     }
     function move(_timeDelta) {

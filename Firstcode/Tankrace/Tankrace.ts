@@ -86,10 +86,13 @@ namespace Tankrace {
         if (checkKey("w")) {
             tank.velocity = 100;
         }
+        if (checkKey("s")) {
+             tank.velocity = -100;
+             }
     }
 
     function checkKey(_key:string):boolean{
-        //console.log(keys)
+        console.log(keys)
         return keys [_key];
     }
 
