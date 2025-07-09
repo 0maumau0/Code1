@@ -8,12 +8,36 @@ var Tankrace;
         tank = {
             element: document.createElement("span"),
             position: { x: 100, y: 100 },
-            velocity: { x: 0, y: 0 },
-            rotation: 0
+            velocity: 0,
+            rotation: 0,
         };
         document.body.appendChild(tank.element);
+        document.body.addEventListener("mousemove", hndMouseMove);
+        document.body.addEventListener("keydown", hndForwardBackwards);
+        document.body.addEventListener("keyup", hndForwardBackwards);
         //start game loop
         update(0);
+    }
+    function hndMouseMove(_event) {
+        tank.rotation += _event.movementX;
+    }
+    function hndForwardBackwards(_event) {
+        if (_event.type == "keyup") {
+            tank.velocity = 0;
+            return;
+        }
+        const radians = Math.PI * tank.rotation / 180;
+        switch (_event.key) {
+            case "w":
+                tank.velocity = 100;
+                break;
+            case "s":
+                const backwards = Math.PI * tank.rotation / 180;
+                tank.velocity = -100;
+                break;
+            default:
+                tank.velocity = 0;
+        }
     }
     function update(_time) {
         const timeCurrent = Date.now();
@@ -24,7 +48,9 @@ var Tankrace;
         requestAnimationFrame(update);
     }
     function move(_timeDelta) {
-        tank.rotation += 1;
+        const radians = Math.PI * tank.rotation / 180;
+        tank.position.x += tank.velocity * Math.cos(radians) * _timeDelta;
+        tank.position.y += tank.velocity * Math.sin(radians) * _timeDelta;
         const matrix = createMatrix(tank.position, tank.rotation, { x: 40, y: 20 });
         tank.element.style.transform = matrix;
     }

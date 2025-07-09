@@ -3,26 +3,65 @@ namespace Tankrace {
     type Tank = {
         element: HTMLSpanElement,
         position: Vector,
-        velocity: Vector,
+        velocity: number,
         rotation: number,
     }
 
-    
+
 
     window.addEventListener("load", handleload);
     let tank: Tank;
-    let timePreviousFrame:number = 0;
+    let timePreviousFrame: number = 0;
 
     function handleload(): void {
         tank = {
             element: document.createElement("span"),
             position: { x: 100, y: 100 },
-            velocity: { x: 0, y: 0 },
-            rotation: 0
+            velocity: 0,
+            rotation: 0,
         }
         document.body.appendChild(tank.element);
+
+        document.body.addEventListener("mousemove", hndMouseMove);
+        document.body.addEventListener("keydown", hndForwardBackwards);
+        document.body.addEventListener("keyup", hndForwardBackwards);
+
         //start game loop
         update(0);
+    }
+
+    function hndMouseMove(_event: MouseEvent): void {
+        tank.rotation += _event.movementX
+    }
+
+    function hndForwardBackwards(_event: KeyboardEvent): void {
+
+        if (_event.type == "keyup") {
+            tank.velocity = 0;
+            return;
+        }
+
+        const radians: number = Math.PI * tank.rotation / 180;
+
+        switch (_event.key) {
+
+            case "w":
+                tank.velocity = 100;
+
+                break;
+
+            case "s":
+                const backwards: number = Math.PI * tank.rotation / 180;
+                tank.velocity = -100;
+
+                break;
+            default:
+                tank.velocity = 0;
+
+        }
+
+
+
     }
 
 
@@ -39,7 +78,10 @@ namespace Tankrace {
     }
 
     function move(_timeDelta: number): void {
-        tank.rotation += 1;
+        const radians: number = Math.PI * tank.rotation / 180;
+        tank.position.x += tank.velocity * Math.cos(radians) * _timeDelta
+        tank.position.y += tank.velocity * Math.sin(radians) * _timeDelta
+
         const matrix: string = createMatrix(tank.position, tank.rotation, { x: 40, y: 20 });
         tank.element.style.transform = matrix;
     }
