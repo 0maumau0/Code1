@@ -7,6 +7,8 @@ namespace Tankrace {
         rotation: number,
     }
 
+    
+
     window.addEventListener("load", handleload);
     let tank: Tank;
     let timePreviousFrame:number = 0;
