@@ -70,7 +70,7 @@ namespace Tankrace {
 
     function update(_time: number): void {
 
-        const timeCurrent: number = Date.now();
+        // const timecurrent: number = Date.now();
         let timeDelta: number = _time - timePreviousFrame;
         timeDelta /= 1000;
 

@@ -2,7 +2,7 @@ namespace RolltheDice {
 
 
 
-    export let data: any = [
+    export const data: any= [
 
         {
             type: "d4", dice: 0, min: 1, max: 4,
@@ -32,6 +32,6 @@ namespace RolltheDice {
              sum: 0
         },
 
-        ["zwischenspeicher"]
+        [""]
     ]
 }

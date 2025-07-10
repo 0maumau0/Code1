@@ -1,4 +1,4 @@
-namespace animation {
+namespace Ballanimation{
 
     type Vector = { x: number, y: number };
     type Ball = {
@@ -22,14 +22,14 @@ namespace animation {
         update();
     }
 
-    function update() {
+    function update():void {
 
         const timeCurrent: number = Date.now();
         let timeDelta: number = timeCurrent - timePreviousFrame
         timeDelta /= 1000
 
         move(timeDelta);
-       checkCollisionAll(),
+       checkCollisionAll();
 
         timePreviousFrame = timeCurrent
         setTimeout(update, 16);
@@ -51,13 +51,13 @@ namespace animation {
 
     }
 
-    function handlClick(_event: Event) {
-        let target: HTMLElement = <HTMLElement>(_event.target)
+    function handlClick(_event: Event):void {
+        const target: HTMLElement = <HTMLElement>(_event.target)
         console.log(target.tagName);
 
         if (target.tagName == "SPAN") {
 
-            let targetParent = target.parentElement
+            const targetParent: HTMLElement = target.parentElement!;
             targetParent?.removeChild(target)
 
         }
@@ -70,7 +70,7 @@ namespace animation {
 
     }
 
-    function createball() {
+    function createball():void {
         const ball: Ball = {
             element: document.createElement("span"),
             position: { x: 100 + Math.floor(Math.random() * 300) + 2, y: 100 + (Math.random() * 300) + 2 },
@@ -86,7 +86,8 @@ namespace animation {
     function checkCollisionAll(): void {
         for (const a in balls) {
             for (let b: number = Number(a) + 1; b < balls.length; b++) {
-                checkCollision(Number(a),b);
+                // checkCollision(Number(a),b);
+
                 // let distance: number = Math.hypot(balls[a].position.x);
                 // let threshhold: number = 2;
                 // if (distance < threshhold){
@@ -98,11 +99,11 @@ namespace animation {
         }
 
     }
-    function checkCollision(_a:number, _b:number){
-        let deltax:number = balls[_a].position.x- balls[_b].position.x; 
-        let deltay:number = balls[_a].position.y- balls[_b].position.y;
-        let collision
-    }
+    // function checkCollision(_a:number, _b:number){
+    //     let deltax:number = balls[_a].position.x- balls[_b].position.x; 
+    //     let deltay:number = balls[_a].position.y- balls[_b].position.y;
+    //     let collision
+    // }
 
 
 
