@@ -15,7 +15,7 @@ namespace eventInspektor {
     });
   }
 
-  // problem: span dont have settet size and inner text isnt completly
+  // problem: span dont have settet size and inner text isnt compleTly
   function handleMove(_event: MouseEvent): void {
     console.log(_event)
     let span = document.getElementById("cursorSpan") as HTMLElement;
