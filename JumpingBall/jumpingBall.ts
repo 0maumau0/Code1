@@ -14,7 +14,6 @@ namespace JumpingBall {
     type Wall = {
         element: HTMLSpanElement,
         positon: Vector,
-        velocity: Vector
     };
     let ball: Ball;
 
@@ -23,8 +22,6 @@ namespace JumpingBall {
 
     function hndLoad(): void {
         document.addEventListener("keypress", hndKeypress);
-        const s: string = prompt("dificulty ? easy: 1, mid: 2, hard: 3")!;
-        const dificulty: number = Number(s);
 
         ball =createBall();
         gameLoop();
@@ -39,13 +36,9 @@ namespace JumpingBall {
 
 
     function gameLoop(): void {
-        gameState();
-
-    }
-
-    function gameState(): void {
-
         createObstacle();
+
+
     }
 
     function createObstacle(): void {

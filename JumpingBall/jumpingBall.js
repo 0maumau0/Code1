@@ -5,8 +5,6 @@ var JumpingBall;
     window.addEventListener("load", hndLoad);
     function hndLoad() {
         document.addEventListener("keypress", hndKeypress);
-        const s = prompt("dificulty ? easy: 1, mid: 2, hard: 3");
-        const dificulty = Number(s);
         ball = createBall();
         gameLoop();
     }
@@ -16,9 +14,6 @@ var JumpingBall;
         }
     }
     function gameLoop() {
-        gameState();
-    }
-    function gameState() {
         createObstacle();
     }
     function createObstacle() {

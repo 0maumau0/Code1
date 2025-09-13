@@ -16,7 +16,7 @@ namespace Ballanimation{
     function handleLoad(): void {
         document.body.addEventListener("click", handlClick);
 
-        for (let i: number = 0; i < 400; i++) {
+        for (let i: number = 0; i < 2; i++) {
             createball();
         }
         update();
