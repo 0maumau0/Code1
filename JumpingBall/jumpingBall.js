@@ -2,7 +2,7 @@
 var JumpingBall;
 (function (JumpingBall) {
     let ball;
-    let wall;
+    const walls = [];
     const windowheight = 10;
     const windowwidtht = 10;
     window.addEventListener("load", hndLoad);
@@ -25,7 +25,7 @@ var JumpingBall;
     }
     function setUp() {
         ball = createBall();
-        wall = createWall();
+        createWall();
     }
     function gameLoop() {
         displayState();
@@ -43,7 +43,7 @@ var JumpingBall;
     }
     function checkCollision() {
         //check ball
-        if (ball.position.y > 600 || ball.position.y <= 80) {
+        if (ball.position.y > 6004 || ball.position.y <= 80) {
             ball.velocity.y = 0;
         }
         //check obstacles
@@ -60,13 +60,26 @@ var JumpingBall;
         return ball;
     }
     function createWall() {
-        const wall = {
-            element: document.createElement("wall"),
-            position: { x: windowwidtht, y: windowheight }
-        };
-        wall.element.style.transform = "matrix(" + document.body.clientWidth + ",0,0,30,0,0 )";
-        document.body.appendChild(wall.element);
-        return wall;
+        for (let i = 0; i <= 1; i++) {
+            const wall = {
+                element: document.createElement("wall"),
+                position: { x: windowwidtht, y: windowheight }
+            };
+            switch (i) {
+                case (0):
+                    wall.element.style.transform = "matrix(" + document.body.clientWidth + ",0,0,100,0,0 )";
+                    document.body.appendChild(wall.element);
+                    console.log("first wall");
+                    walls[i] = wall;
+                    break;
+                case (1):
+                    wall.element.style.transform = "matrix(" + document.body.clientWidth + ",0,0,-100,0," + document.body.clientHeight + " )";
+                    document.body.appendChild(wall.element);
+                    console.log("second wall");
+                    walls[i] = wall;
+            }
+        }
+        ;
     }
     ;
 })(JumpingBall || (JumpingBall = {}));

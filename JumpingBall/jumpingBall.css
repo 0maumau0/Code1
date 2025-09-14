@@ -15,7 +15,8 @@ span {
     background-color: blue;
     height: 2px;
     width: 2px;
-    position: fixed;
+    display: block;
+    padding-block: 0;
     transform: matrix(20,0,0,20,0,0);
     
 }
@@ -23,7 +24,8 @@ wall{
     background-color: purple;
     height: 2px;
     width: 2px;
-    position: fixed;
+    display: block;
+    padding-block: 0;
     transform: matrix(20,0,0,20,0,0);
     
 }

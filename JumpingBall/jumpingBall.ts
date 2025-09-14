@@ -16,7 +16,7 @@ namespace JumpingBall {
         position: Vector,
     };
     let ball: Ball;
-    let wall: Wall;
+    const walls:Wall[] =[];
     const windowheight:number = 10;
     const windowwidtht:number = 10;
     
@@ -51,7 +51,7 @@ namespace JumpingBall {
     function setUp(): void{
         
         ball =createBall();
-        wall =createWall();
+        createWall();
 
     }
 
@@ -77,7 +77,7 @@ namespace JumpingBall {
     function checkCollision():void{
         
         //check ball
-        if ( ball.position.y > 600 || ball.position.y <=80){
+        if ( ball.position.y > 6004 || ball.position.y <=80){
             ball.velocity.y = 0;
         }
         //check obstacles
@@ -101,16 +101,32 @@ namespace JumpingBall {
 
 
 
-    function createWall(): Wall {
+    function createWall(): void {
+        
+            for (let i:number =0; i<=1; i++){
 
-        const wall: Wall = {
+             
+            const wall: Wall = {
             element: document.createElement("wall"),
             position: {x: windowwidtht,y: windowheight}
-        }
+            }
+  
+            switch (i){
+            case (0):
+            wall.element.style.transform = "matrix("+document.body.clientWidth+",0,0,100,0,0 )";
+            document.body.appendChild(wall.element);
+            console.log("first wall");
+            walls [i] = wall;
+            break;
+            
+           case (1):
+             wall.element.style.transform = "matrix("+document.body.clientWidth+",0,0,-100,0,"+document.body.clientHeight+" )";
+            document.body.appendChild(wall.element);
+            console.log("second wall");
+            walls [i] = wall;
 
-        wall.element.style.transform = "matrix("+document.body.clientWidth+",0,0,30,0,0 )";
-        document.body.appendChild(wall.element);
+            }
+        };
 
-        return wall
-    };
+ };
 }
