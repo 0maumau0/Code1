@@ -3,6 +3,8 @@ var JumpingBall;
 (function (JumpingBall) {
     let ball;
     let wall;
+    const windowheight = 10;
+    const windowwidtht = 10;
     window.addEventListener("load", hndLoad);
     function hndLoad() {
         document.addEventListener("keypress", hndKeypress);
@@ -10,9 +12,15 @@ var JumpingBall;
         gameLoop();
     }
     function hndKeypress(_event) {
-        if (_event.code == "Space") {
+        if (_event.code == "Space" && ball.position.y <= 300) {
             ball.velocity.y = 1;
             console.log("Jump");
+        }
+        if (_event.code == "Space" && ball.position.y >= 300) {
+            ball.velocity.y = -1;
+        }
+        else {
+            console.log("error");
         }
     }
     function setUp() {
@@ -28,12 +36,17 @@ var JumpingBall;
     function displayState() {
         ball.position.y = ball.position.y + ball.velocity.y;
         ball.element.style.transform = "matrix(20,0,0,20," + ball.position.x + "," + ball.position.y + ")";
-        //console.log(ball.position.y)
+        console.log(ball.position.y);
     }
     ;
     function createObstacle() {
     }
     function checkCollision() {
+        //check ball
+        if (ball.position.y > 600 || ball.position.y <= 80) {
+            ball.velocity.y = 0;
+        }
+        //check obstacles
     }
     ;
     function createBall() {
@@ -47,6 +60,12 @@ var JumpingBall;
         return ball;
     }
     function createWall() {
+        const wall = {
+            element: document.createElement("wall"),
+            position: { x: windowwidtht, y: windowheight }
+        };
+        wall.element.style.transform = "matrix(" + document.body.clientWidth + ",0,0,30,0,0 )";
+        document.body.appendChild(wall.element);
         return wall;
     }
     ;
