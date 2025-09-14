@@ -43,7 +43,7 @@ var JumpingBall;
     }
     function checkCollision() {
         //check ball
-        if (ball.position.y > 6004 || ball.position.y <= 80) {
+        if (ball.position.y > 600 || ball.position.y <= 80) {
             ball.velocity.y = 0;
         }
         //check obstacles
@@ -67,13 +67,13 @@ var JumpingBall;
             };
             switch (i) {
                 case (0):
-                    wall.element.style.transform = "matrix(" + document.body.clientWidth + ",0,0,100,0,0 )";
+                    wall.element.style.transform = "matrix(" + document.body.clientWidth + ",0,0,50,0,0 )";
                     document.body.appendChild(wall.element);
                     console.log("first wall");
                     walls[i] = wall;
                     break;
                 case (1):
-                    wall.element.style.transform = "matrix(" + document.body.clientWidth + ",0,0,-100,0," + document.body.clientHeight + " )";
+                    wall.element.style.transform = "matrix(" + document.body.clientWidth + ",0,0,-50,0," + document.body.clientHeight + " )";
                     document.body.appendChild(wall.element);
                     console.log("second wall");
                     walls[i] = wall;
