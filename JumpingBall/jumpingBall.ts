@@ -16,6 +16,8 @@ namespace JumpingBall {
         positon: Vector,
     };
     let ball: Ball;
+    let wall: Wall;
+    
 
 
     window.addEventListener("load", hndLoad);
@@ -23,33 +25,56 @@ namespace JumpingBall {
     function hndLoad(): void {
         document.addEventListener("keypress", hndKeypress);
 
-        ball =createBall();
+        setUp();
         gameLoop();
 
     }
 
+
     function hndKeypress(_event: KeyboardEvent): void {
-        if ( _event.code == " "){
-            ball.velocity.y = 20
+        if ( _event.code == "Space"){
+            ball.velocity.y = 1
+            console.log("Jump");  
              }
     }
 
-
-    function gameLoop(): void {
-        createObstacle();
-
+    function setUp(): void{
+        
+        ball =createBall();
+        wall =createWall();
 
     }
+
+    function gameLoop(): void {
+        displayState();
+        createObstacle();
+        checkCollision();
+
+        requestAnimationFrame(gameLoop);
+    }
+
+    function displayState():void{
+        ball.position.y = ball.position.y + ball.velocity.y
+        ball.element.style.transform = "matrix(20,0,0,20,"+ ball.position.x+","+ball.position.y+")";
+        //console.log(ball.position.y)
+
+    };
 
     function createObstacle(): void {
 
     }
 
+    function checkCollision():void{
+
+    };
+
+
+
     function createBall(): Ball {
         const ball: Ball= {
             element: document.createElement("span"),
             position: { x: 80, y: 80 },
-            velocity: { x: 0, y: 20 },
+            velocity: { x: 0, y: 0 },
         };
 
         ball.element.style.transform = "matrix(20,0,0,20, " + ball.position.x + "," + ball.position.y + ")";
@@ -57,4 +82,12 @@ namespace JumpingBall {
 
         return ball;
     }
+
+
+    
+    function createWall(): Wall {
+
+
+        return wall
+    };
 }
