@@ -1,26 +1,28 @@
-html,
+html, 
+
+
 
 body {
-    background-color: darkorchid;
-    height: 95%;
-    width: 95%;
+    background-color: grey;
+    width: 3000px;
+    height: 800px;
+    display:inline-block;
+    margin: 1;
 }
 
 span {
-    background-color: blue;
+    background-color: yellow;
     height: 2px;
     width: 2px;
-    display: block;
-    padding-block: 0;
+    display: inline-flex;
     transform: matrix(20,0,0,20,0,0);
     
 }
 wall{
-    background-color: purple;
+    background-color: blueviolet;
+    display: inline-flex;
     height: 2px;
     width: 2px;
-    display: block;
-    padding-block: 0;
     transform: matrix(20,0,0,20,0,0);
     
 }

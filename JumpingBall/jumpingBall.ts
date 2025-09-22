@@ -17,8 +17,7 @@ namespace JumpingBall {
     };
     let ball: Ball;
     const walls:Wall[] =[];
-    const windowheight:number = 10;
-    const windowwidtht:number = 10;
+    
     
 
 
@@ -26,6 +25,7 @@ namespace JumpingBall {
 
     function hndLoad(): void {
         
+        console.log(document.body.clientHeight);
         document.addEventListener("keypress", hndKeypress);
         setUp();
         gameLoop();
@@ -35,11 +35,11 @@ namespace JumpingBall {
 
     function hndKeypress(_event: KeyboardEvent): void{
       
-        if ( _event.code == "Space" && ball.position.y <=300){
+        if ( _event.code == "Space" && ball.position.y <=450){
            ball.velocity.y = 1;
            console.log("Jump");  
              }
-             if (_event.code == "Space" && ball.position.y>=300) {
+             if (_event.code == "Space" && ball.position.y>=450) {
                 ball.velocity.y = -1;
 
              } else {
@@ -77,7 +77,7 @@ namespace JumpingBall {
     function checkCollision():void{
         
         //check ball
-        if ( ball.position.y > 600 || ball.position.y <=80){
+        if ( ball.position.y == 270 || ball.position.y == 630){
             ball.velocity.y = 0;
         }
         //check obstacles
@@ -89,7 +89,7 @@ namespace JumpingBall {
     function createBall(): Ball {
         const ball: Ball= {
             element: document.createElement("span"),
-            position: { x: 80, y: 80 },
+            position: { x: 100, y: 270},
             velocity: { x: 0, y: 0 },
         };
 
@@ -108,22 +108,23 @@ namespace JumpingBall {
              
             const wall: Wall = {
             element: document.createElement("wall"),
-            position: {x: windowwidtht,y: windowheight}
+            position: {x: 0,y: 200}
             }
   
             switch (i){
             case (0):
-            wall.element.style.transform = "matrix("+document.body.clientWidth+",0,0,50,0,0 )";
+            wall.element.style.transform = "matrix("+1500+",0,0,50,"+wall.position.x+","+wall.position.y+" )";
             document.body.appendChild(wall.element);
             console.log("first wall");
             walls [i] = wall;
             break;
             
            case (1):
-             wall.element.style.transform = "matrix("+document.body.clientWidth+",0,0,-50,0,"+document.body.clientHeight+" )";
+             wall.element.style.transform = "matrix("+1500+",0,0,50,0,"+700+" )";
             document.body.appendChild(wall.element);
             console.log("second wall");
             walls [i] = wall;
+            break;
 
             }
         };
