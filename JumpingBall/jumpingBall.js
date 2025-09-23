@@ -12,18 +12,17 @@ var JumpingBall;
         console.log(document.body.clientHeight);
         document.addEventListener("keypress", hndKeypress);
         setUp();
-        // gameLoop();
+        gameLoop();
     }
     function hndKeypress(_event) {
         if (_event.code == "Space" && ball.position.y <= 450) {
-            ball.velocity.y = 1 + accelerator / 100;
-            console.log("Jump");
+            ball.velocity.y = 1 + accelerator / 10;
+            //console.log("Jump");  
         }
         if (_event.code == "Space" && ball.position.y >= 450) {
-            ball.velocity.y = -1 - accelerator / 100;
+            ball.velocity.y = -1 - accelerator / 10;
         }
         else {
-            gameLoop();
         }
     }
     function setUp() {
@@ -39,19 +38,10 @@ var JumpingBall;
     function displayState() {
         ball.position.y = ball.position.y + ball.velocity.y;
         ball.element.style.transform = "matrix(20,0,0,20," + ball.position.x + "," + ball.position.y + ")";
-        console.log(obstacles.length);
-        if (obstacles.length > 0) {
-            console.log(obstacles.length);
-            console.log(obstacles[0]);
-            console.log(obstacles[1]);
-            for (let n = obstacles.length; n = 0; n--)
-                ;
-            {
-                let b = obstacles.length;
-                obstacles[b].position.x = obstacles[b].position.x + obstacles[b].velocity.x;
-                obstacles[b].element.style.transform = "matrix(10,0,0,40," + obstacles[b].position.x + "," + obstacles[b].position.x + ")";
-                b--;
-            }
+        console.log(accelerator);
+        for (let i = obstacles.length; i = 0; i--) {
+            obstacles[i].position.x = obstacles[i].position.x + obstacles[i].velocity.x;
+            obstacles[i].element.style.transform = "matrix(10,0,0,40," + obstacles[i].position.x + "," + obstacles[i].position.y + ")";
         }
     }
     ;
@@ -74,7 +64,7 @@ var JumpingBall;
         let barrier = {
             element: document.createElement("wall"),
             position: { x: 1500, y: Math.floor(Math.random() * (630 - 270 + 1) + 270) },
-            velocity: { x: 1 + accelerator / 100, y: 0 },
+            velocity: { x: -1 - accelerator / 100, y: 0 },
         };
         barrier.element.style.transform = "matrix(10,0,0,40," + barrier.position.x + "," + barrier.position.y + ")";
         document.body.appendChild(barrier.element);
