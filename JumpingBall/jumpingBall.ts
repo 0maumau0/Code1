@@ -60,7 +60,7 @@ namespace JumpingBall {
         
         ball =createBall();
         createWall();
-
+        alert("ready?");
     }
 
     function gameLoop(): void {
@@ -140,7 +140,23 @@ namespace JumpingBall {
         if ( ball.position.y <= 270 || ball.position.y >= 630){
             ball.velocity.y = 0;
         }
-        //check obstacles          
+        //check obstacles    
+        for (const barrier of obstacles){
+
+            if (barrier.position.x< ball.position.x && barrier.position.x + barrier.size.x > ball.position.x ){
+                console.log(" x ");
+
+                if(barrier.position.y <ball.position.y && barrier.position.y+barrier.size.y>ball.position.y){
+                console.log(" y ");
+                alert("you Loose with "+ points+" points");
+                window.location.reload();
+                
+                }
+            }
+
+            
+          
+        };
     };
     
 
