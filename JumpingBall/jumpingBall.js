@@ -16,11 +16,11 @@ var JumpingBall;
     }
     function hndKeypress(_event) {
         if (_event.code == "Space" && ball.position.y <= 450) {
-            ball.velocity.y = 1 + accelerator / 10;
+            ball.velocity.y = 1 + accelerator / 7;
             //console.log("Jump");  
         }
         if (_event.code == "Space" && ball.position.y >= 450) {
-            ball.velocity.y = -1 - accelerator / 10;
+            ball.velocity.y = -1 - accelerator / 7;
         }
         else {
         }
@@ -30,7 +30,7 @@ var JumpingBall;
         createWall();
     }
     function gameLoop() {
-        adjustObstacle();
+        spawnObstacle();
         displayState();
         checkCollision();
         requestAnimationFrame(gameLoop);
@@ -39,20 +39,23 @@ var JumpingBall;
         ball.position.y = ball.position.y + ball.velocity.y;
         ball.element.style.transform = "matrix(20,0,0,20," + ball.position.x + "," + ball.position.y + ")";
         console.log(accelerator);
-        for (let i = obstacles.length; i = 0; i--) {
-            obstacles[i].position.x = obstacles[i].position.x + obstacles[i].velocity.x;
-            obstacles[i].element.style.transform = "matrix(10,0,0,40," + obstacles[i].position.x + "," + obstacles[i].position.y + ")";
+        for (const barrier of obstacles) {
+            //obstacles[i].position.x = obstacles[i].position.x + obstacles[i].velocity.x;
+            //obstacles[i].element.style.transform = "matrix(10,0,0,40,"+ obstacles[i].position.x+","+obstacles[i].position.y+")";
+            barrier.velocity.x = -1 - accelerator / 5;
+            barrier.position.x = barrier.position.x + barrier.velocity.x;
+            barrier.element.style.transform = "matrix(10,0,0,40," + barrier.position.x + "," + barrier.position.y + ")";
         }
     }
     ;
-    function adjustObstacle() {
+    function spawnObstacle() {
         counter++;
-        if (counter + accelerator == 360 && limit == false) {
+        if (counter + accelerator * 3 == 240 && limit == false) {
             createObstacle();
             counter = 0;
             accelerator++;
         }
-        if (accelerator >= 240 && counter == 120) {
+        if (accelerator >= 50 && counter + accelerator / 10 == 60) {
             createObstacle();
             limit = true;
             accelerator++;
@@ -62,9 +65,9 @@ var JumpingBall;
     }
     function createObstacle() {
         let barrier = {
-            element: document.createElement("wall"),
+            element: document.createElement("obstacles"),
             position: { x: 1500, y: Math.floor(Math.random() * (630 - 270 + 1) + 270) },
-            velocity: { x: -1 - accelerator / 100, y: 0 },
+            velocity: { x: -1 - accelerator / 7, y: 0 },
         };
         barrier.element.style.transform = "matrix(10,0,0,40," + barrier.position.x + "," + barrier.position.y + ")";
         document.body.appendChild(barrier.element);
