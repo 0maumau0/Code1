@@ -5,11 +5,13 @@ namespace JumpingBall {
         element: HTMLSpanElement,
         position: Vector,
         velocity: Vector,
+        size:Vector,
     };
     type Obstacle = {
         element: HTMLSpanElement,
         position: Vector,
         velocity: Vector,
+        size:Vector,
     };
     type Wall = {
         element: HTMLSpanElement,
@@ -21,6 +23,7 @@ namespace JumpingBall {
     let counter:number=0;
     let accelerator:number= 0;
     let limit:boolean=false;
+    let points:number=0;
     
     
     
@@ -41,11 +44,11 @@ namespace JumpingBall {
     function hndKeypress(_event: KeyboardEvent): void{
       
         if ( _event.code == "Space" && ball.position.y <=450){
-           ball.velocity.y = 1+ accelerator /7;
+           ball.velocity.y = 1+ accelerator /5;
            //console.log("Jump");  
              }
              if (_event.code == "Space" && ball.position.y>=450) {
-                ball.velocity.y = -1 - accelerator/ 7;
+                ball.velocity.y = -1 - accelerator/ 5;
 
              } else {
                 
@@ -71,7 +74,7 @@ namespace JumpingBall {
     function displayState():void{
 
         ball.position.y = ball.position.y + ball.velocity.y
-        ball.element.style.transform = "matrix(20,0,0,20,"+ ball.position.x+","+ball.position.y+")";
+        ball.element.style.transform = "matrix("+ball.size.x+",0,0,"+ball.size.y+","+ ball.position.x+","+ball.position.y+")";
 
         console.log(accelerator)
         
@@ -83,7 +86,7 @@ namespace JumpingBall {
              //obstacles[i].element.style.transform = "matrix(10,0,0,40,"+ obstacles[i].position.x+","+obstacles[i].position.y+")";
              barrier.velocity.x = -1 - accelerator/5;
              barrier.position.x = barrier.position.x + barrier.velocity.x;
-             barrier.element.style.transform = "matrix(10,0,0,40,"+barrier.position.x+","+barrier.position.y+")"
+             barrier.element.style.transform = "matrix("+barrier.size.x+",0,0,"+barrier.size.y+","+barrier.position.x+","+barrier.position.y+")"
              
         }
 
@@ -99,15 +102,17 @@ namespace JumpingBall {
            
             counter = 0;
              accelerator++;
+             points++;
         }
 
-        if( accelerator>=50 && counter+ accelerator/10== 60){
+        if( accelerator>50 && counter+ accelerator/10 >= 60){
 
             createObstacle();
 
             limit= true;
             accelerator ++;
             counter=0;
+            points++;
         }
         //console.log(counter);
     }
@@ -119,10 +124,11 @@ namespace JumpingBall {
         let barrier: Obstacle= {
                 element: document.createElement("obstacles"),
                 position: {x: 1500, y: Math.floor(Math.random() * (630 - 270 + 1) + 270)},
-                velocity: {x: -1 - accelerator/7 ,y:0},
+                velocity: {x: -1 - accelerator/10 ,y:0},
+                size:      {x: 10, y:40},
             }
 
-            barrier.element.style.transform = "matrix(10,0,0,40,"+barrier.position.x+","+barrier.position.y+")";
+            barrier.element.style.transform = "matrix("+barrier.size.x+",0,0,"+barrier.size.y+","+barrier.position.x+","+barrier.position.y+")";
             document.body.appendChild(barrier.element);
             obstacles.push(barrier);
             return barrier;
@@ -134,10 +140,9 @@ namespace JumpingBall {
         if ( ball.position.y <= 270 || ball.position.y >= 630){
             ball.velocity.y = 0;
         }
-        //check obstacles
-        
-        
+        //check obstacles          
     };
+    
 
 
 
@@ -146,13 +151,14 @@ namespace JumpingBall {
             element: document.createElement("span"),
             position: { x: 100, y: 270},
             velocity: { x: 0, y: 0 },
+            size: {x:20, y:20},
         };
 
-        ball.element.style.transform = "matrix(20,0,0,20, " + ball.position.x + "," + ball.position.y + ")";
+        ball.element.style.transform = "matrix("+ball.size.x+",0,0,"+ball.size.y+", " + ball.position.x + "," + ball.position.y + ")";
         document.body.appendChild(ball.element);
 
         return ball;
-    }
+    };
 
 
 
@@ -185,4 +191,5 @@ namespace JumpingBall {
         };
 
  };
+
 }
