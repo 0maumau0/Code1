@@ -70,8 +70,8 @@ var JumpingBall;
     function createObstacle() {
         let barrier = {
             element: document.createElement("obstacles"),
-            position: { x: 1500, y: Math.floor(Math.random() * (630 - 270 + 1) + 270) },
-            velocity: { x: -1 - accelerator / 10, y: 0 },
+            position: { x: 1500, y: Math.floor(Math.random() * (610 - 290 + 1) + 290) },
+            velocity: { x: -1 - accelerator / 5, y: 0 },
             size: { x: 10, y: 40 },
         };
         barrier.element.style.transform = "matrix(" + barrier.size.x + ",0,0," + barrier.size.y + "," + barrier.position.x + "," + barrier.position.y + ")";
@@ -86,13 +86,27 @@ var JumpingBall;
         }
         //check obstacles    
         for (const barrier of obstacles) {
-            if (barrier.position.x < ball.position.x && barrier.position.x + barrier.size.x > ball.position.x) {
-                console.log(" x ");
-                if (barrier.position.y < ball.position.y && barrier.position.y + barrier.size.y > ball.position.y) {
-                    console.log(" y ");
-                    alert("you Loose with " + points + " points");
-                    window.location.reload();
-                }
+            let distancex = ball.position.x + ball.size.x - barrier.position.x;
+            let distancey = ball.position.y - barrier.position.y;
+            let xhit = false;
+            let yhit = false;
+            if (20 + accelerator / 3 >= distancex && distancex > 0 + accelerator / 3) {
+                xhit = true;
+                // console.log("xhit true");
+                //console.log(distancex);
+                // console.log(barrier.position.x + "position barrierx");
+                //console.log(ball.position.x+ball.size.x + "position ballx");
+            }
+            if (50 >= distancey && distancey >= -50) {
+                yhit = true;
+                //console.log("yhit true");
+                //console.log(distancey);
+                //console.log(barrier.position.y + "position barriery");
+                //console.log(ball.position.y + "position bally");    
+            }
+            if (yhit == true && xhit == true) {
+                alert("you Loose with " + points + " points");
+                window.location.reload();
             }
         }
         ;
